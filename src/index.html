@@ -9,18 +9,21 @@
     <script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
 </head>
 <body>
-<fieldset class='btn_group' onclick="">
-    <legend>Select:</legend>
-    <button value='#text' class='btn'>Color</button>
-    <button value='#swatch' class='btn active'>Background Color</button>
-</fieldset>
-<div id='red'></div>
-<div id='green'></div>
-<div id='blue'></div>
+<header>
+    <fieldset class='btn_group' onclick="">
+        <legend>Select:</legend>
+        <button value='#text' class='btn'>Color</button>
+        <button value='#swatch' class='btn active'>Background Color</button>
+    </fieldset>
+</header>
 
-<div id='swatch' class='ui-widget-content ui-corner-all'>
-    <p id='text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, ratione.</p>
-</div>
+<main>
+    <div id='HSLSlider'></div>
+
+    <div id='swatch' class='ui-widget-content ui-corner-all'>
+        <p id='text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, ratione.</p>
+    </div>
+</main>
 
 
 </body>

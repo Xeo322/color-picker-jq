@@ -1,44 +1,25 @@
 import './styles/main.scss'
 
 $(() => {
+
+    let hsl = 360
     let item = '#swatch'
+    let HSLSlider = $('#HSLSlider')
 
     $('.btn').click((e) => {
         $('.btn').removeClass('active')
         $(e.target).addClass('active')
         item = e.target.value
     })
+    const setColor = () => {
+        hsl = HSLSlider.slider('option', 'value')
+        $(item).css((item === '#swatch' ? 'background-color' : 'color'), `hsl(${hsl}, 100%, 50% )`)
 
-    const hexFromRGB = (r, g, b) => {
-        let hex = [
-            r.toString(16),
-            g.toString(16),
-            b.toString(16)
-        ];
-        $.each(hex, (nr, val) => {
-            if (val.length === 1) {
-                hex[nr] = '0' + val
-            }
-        });
-        return hex.join('').toUpperCase()
-    }
-    const refreshSwatch = () => {
-        let red = $("#red").slider('value'),
-            green = $("#green").slider('value'),
-            blue = $("#blue").slider('value'),
-            hex = hexFromRGB(red, green, blue)
-        $(item).css((item === '#swatch' ? 'background-color' : 'color'), '#' + hex)
     }
 
-    $('#red, #green, #blue').slider({
-        orientation: 'horizontal',
-        range: 'min',
-        max: 255,
-        value: 127,
-        slide: refreshSwatch,
-        change: refreshSwatch
+    HSLSlider.slider({
+        max: 360,
+        slide: setColor,
+        change: setColor
     })
-    $('#red').slider('value', 255)
-    $('#green').slider('value', 140)
-    $('#blue').slider('value', 60)
 })
