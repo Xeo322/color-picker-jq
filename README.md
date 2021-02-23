@@ -1,4 +1,4 @@
-# RB.RU
+# color-picker-jquery
 
 NMP RUN START   //Запуск dev сервера
 NPM RUN DEV     //Создание билда в dev режиме
